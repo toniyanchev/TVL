@@ -1,0 +1,15 @@
+{
+  "name": "TVL",
+  "version": "1.0.0",
+  "description": "\"School project for SUBD subject in ELSYS\"",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": "https://github.com/toniyanchev/TVL.git",
+  "author": "\"Anton Yanchev\"",
+  "license": "MIT",
+  "dependencies": {
+    "typeorm": "^0.2.25"
+  }
+}
