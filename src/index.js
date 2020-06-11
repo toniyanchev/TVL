@@ -1,12 +1,13 @@
-const {createConnection, Connection} = require("typeorm");
+const pg = require("pg")
 
-const connection = createConnection({
-    type: "mysql",
-    host: "localhost",
-    port: 3306,
-    username: "tvl",
-    password: "Toni_123",
-    database: "tvl"
-});
+let connection = "postgres://userName:password@localhost/ip:3306/GameShop"
 
-console.log("Hi");
+let pgClient = new pg.Client(connection)
+
+pgClient.connect()
+
+let query = pgClient.query(`SELECT id from Customer where name = '${somename}'`)
+
+query.on("row", function (row, result) {
+    result.addRow(row)
+})
