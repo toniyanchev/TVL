@@ -30,12 +30,30 @@
                     <input type="text" placeholder="Search" />
                     <button class="fas fa-search"></button>
                 </div>
-                <a href=""><i class="fas fa-shopping-cart"></i> Basket</a>
+                <a href="">
+                    <i class="fas fa-shopping-cart"></i> Shopping cart
+                </a>
             </div>
         </header>
         <div class="page-content">
             <h1><%= title %></h1>
             <p>Welcome to <%= title %></p>
+            <section class="cards">
+                <article class="card">
+                    <a href="">
+                        <img
+                            src="https://images-na.ssl-images-amazon.com/images/I/81qy%2BMXuxDL._AC_SX425_.jpg"
+                            alt=""
+                        />
+                    </a>
+                    <content class="card-content">
+                        <h1>Monopoly</h1>
+                        <p>Monopoly is a family board game</p>
+                        <span>$10.00</span>
+                        <button id="buy">Add to cart</button>
+                    </content>
+                </article>
+            </section>
         </div>
         <footer class="footer">
             <span>I'm made by Victor</span>
