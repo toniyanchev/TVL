@@ -2,12 +2,15 @@ const pg = require("pg")
 
 let connection = "postgres://userName:password@localhost/ip:3306/GameShop"
 
-let pgClient = new pg.Client(connection)
+let client = new pg.Client(connection)
 
-pgClient.connect()
+client.connect()
 
-let query = pgClient.query(`SELECT id from Customer where name = '${somename}'`)
-
-query.on("row", function (row, result) {
-    result.addRow(row)
-})
+exports.getGames = async (category, name) => {
+    client
+        .query(`SELECT * FROM games WHERE name = '${query}'`)
+        .then((res) => {
+            return res
+        })
+        .catch((e) => console.error(e.stack))
+}

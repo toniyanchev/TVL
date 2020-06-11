@@ -1,61 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %></title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <script src="js/main.js" defer="" type="module"></script>
-        <script
-            src="https://kit.fontawesome.com/37c25c7fb3.js"
-            crossorigin="anonymous"
-        ></script>
-        <link rel="shortcut icon" href="assets/favicon.ico" />
-        <link rel="icon" href="assets/favicon.ico" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/nav-foot.css" />
+        <%- include('includes/head.ejs') %>
     </head>
     <body>
-        <header class="nav-wrapper">
-            <div class="nav">
-                <a href="/">
-                    <img src="assets/logo.svg" alt="Logo" />
-                </a>
-                <div class="search">
-                    <select name="categories" id="categories-select">
-                        <option value="all">All</option>
-                        <option value="family">Family</option>
-                        <option value="party">Party</option>
-                        <option value="puzzles">Puzzles</option>
-                    </select>
-                    <input type="text" placeholder="Search" />
-                    <button class="fas fa-search"></button>
-                </div>
-                <a href="">
-                    <i class="fas fa-shopping-cart"></i> Shopping cart
-                </a>
-            </div>
-        </header>
+        <%- include('includes/navigation.ejs') %>
         <div class="page-content">
             <h1><%= title %></h1>
             <section class="cards">
+                <% games.forEach(element => { %>
                 <article class="card">
-                    <a href="">
-                        <img
-                            src="https://images-na.ssl-images-amazon.com/images/I/81qy%2BMXuxDL._AC_SX425_.jpg"
-                            alt=""
-                        />
-                    </a>
+                    <img
+                        src="<%= element.thumbnail %>"
+                        alt="<%= element.name %>"
+                    />
                     <content class="card-content">
-                        <h1>Monopoly</h1>
-                        <p>Monopoly is a family board game</p>
-                        <span>10.00</span>
-                        <button id="buy">Add to cart</button>
+                        <h1><%= element.name %></h1>
+                        <p><%= element.description %></p>
+                        <span class="price"><%= element.price %></span>
+                        <a href="/posts/<%= element.id%>">View</a>
                     </content>
                 </article>
+                <% }) %>
             </section>
         </div>
-        <footer class="footer">
-            <span>I'm made by Victor</span>
-        </footer>
+        <%- include('includes/footer.ejs') %>
     </body>
 </html>
