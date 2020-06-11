@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <script src="js/index.js" defer="" type="module"></script>
+        <script
+            src="https://kit.fontawesome.com/37c25c7fb3.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="shortcut icon" href="assets/favicon.ico" />
+        <link rel="icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/nav-foot.css" />
+    </head>
+    <body>
+        <header class="nav-wrapper">
+            <div class="nav">
+                <img src="assets/logo.svg" alt="Logo" />
+                <div class="search">
+                    <select name="categories" id="categories-select">
+                        <option value="all">All</option>
+                        <option value="family">Family</option>
+                        <option value="party">Party</option>
+                        <option value="puzzles">Puzzles</option>
+                    </select>
+                    <input type="text" placeholder="Search" />
+                    <button class="fas fa-search"></button>
+                </div>
+                <a href=""><i class="fas fa-shopping-cart"></i> Basket</a>
+            </div>
+        </header>
+        <div class="page-content">
+            <h1><%= title %></h1>
+            <p>Welcome to <%= title %></p>
+            <% for (let i=0; i < 10; i++ ) { %>
+            <br />
+            <%= i %> <%# will output the numbers 1-10 %> <% } %>
+        </div>
+        <footer class="footer">
+            <span>I'm made by Victor</span>
+        </footer>
+    </body>
+</html>
