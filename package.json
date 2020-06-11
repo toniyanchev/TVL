@@ -4,12 +4,14 @@
   "description": "\"School project for SUBD subject in ELSYS\"",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon -r dotenv/config src/index.js --exec 'node'"
   },
   "repository": "https://github.com/toniyanchev/TVL.git",
   "author": "\"Anton Yanchev\"",
   "license": "MIT",
   "dependencies": {
+    "nodemon": "^2.0.4",
     "typeorm": "^0.2.25"
   }
 }
