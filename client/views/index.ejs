@@ -17,7 +17,9 @@
     <body>
         <header class="nav-wrapper">
             <div class="nav">
-                <img src="assets/logo.svg" alt="Logo" />
+                <a href="/">
+                    <img src="assets/logo.svg" alt="Logo" />
+                </a>
                 <div class="search">
                     <select name="categories" id="categories-select">
                         <option value="all">All</option>
@@ -34,9 +36,6 @@
         <div class="page-content">
             <h1><%= title %></h1>
             <p>Welcome to <%= title %></p>
-            <% for (let i=0; i < 10; i++ ) { %>
-            <br />
-            <%= i %> <%# will output the numbers 1-10 %> <% } %>
         </div>
         <footer class="footer">
             <span>I'm made by Victor</span>

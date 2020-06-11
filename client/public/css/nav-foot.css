@@ -21,6 +21,7 @@
   min-width: 400px;
   width: 50vw;
   height: 50%;
+  display: flex;
 }
 .nav .search button, .nav .search input, .nav .search select {
   border: 2px solid #f9fafc;
@@ -36,7 +37,7 @@
   width: 10%;
 }
 .nav .search input {
-  width: 77%;
+  width: 80%;
   padding: 0 0 0 10px;
 }
 .nav .search select {
