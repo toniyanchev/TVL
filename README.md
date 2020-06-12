@@ -2,7 +2,7 @@
 
 Application for board games store
 
-!(Database structure)["https://i.imgur.com/jjjeBp4.png"]
+![Database structure](https://i.imgur.com/jjjeBp4.png)
 
 ### Branching strategy
 
