@@ -1,9 +1,10 @@
-const { Client } = require('pg');
-client = new Client({
-    host: 'localhost',
-    user: 'toni',
-    password: 'toni123',
-    database: 'toni',
-});
+const { Client } = require("pg")
+const { config } = require("config")
+/*
+ * The config file contains:
+ * host, port, user, password
+ */
 
-module.exports = client;
+client = new Client(config)
+
+module.exports = client
