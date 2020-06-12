@@ -1,9 +1,0 @@
-{
-    "config": {
-        "host": "localhost",
-        "port": 3002,
-        "database": "victorgorchilov",
-        "user": "victorgorchilov",
-        "password": ""
-    }
-}
