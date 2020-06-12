@@ -1,25 +1,25 @@
 const db = require("../db")
 
-const Game = require("./game")
-const Category = require("./category")
-
 module.exports = class Company {
-    constructor(id, name) {
-        this.id = id
+    constructor(name) {
         this.name = name
     }
 
     save() {
-        return db.execute("INSERT INTO companies (name) VALUES (?)", [
-            this.name,
-        ])
+        return db
+            .query(`INSERT INTO companies (name) VALUES ($1) RETURNING id`, [
+                this.name,
+            ])
+            .then((res) => {
+                this.id = res.rows[0].id
+            })
     }
 
     static deleteById(id) {
-        return db.execute(`DELETE * FROM games WHERE company.id = ${id}`)
+        return db.query(`DELETE * FROM games WHERE company.id = $1`, [id])
     }
 
     static findById(id) {
-        return db.execute(`SELECT * FROM games WHERE company.id = ${id}`)
+        return db.query(`SELECT * FROM games WHERE company.id = $1`, [id])
     }
 }

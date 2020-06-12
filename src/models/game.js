@@ -1,40 +1,45 @@
 const db = require("../db")
 
-const Company = require("./company")
-const Category = require("./category")
-
 module.exports = class Game {
-    constructor(id, name, description, price, companyId, categoryId) {
-        this.id = id
+    constructor(name, description, price, thumbnail, companyId, categoryId) {
         this.name = name
         this.description = description
         this.price = price
+        this.thumbnail = thumbnail
         this.companyId = companyId
         this.categoryId = categoryId
     }
 
     save() {
-        return db.execute(
-            "INSERT INTO games (name, description, price, companyId, categoryId) VALUES (?, ?, ?, ?, ?)",
-            [
-                this.name,
-                this.description,
-                this.price,
-                this.companyId,
-                this.categoryId,
-            ]
-        )
+        return db
+            .query(
+                `INSERT INTO games (name, description, price, thumbnail, companyId, categoryId)
+                VALUES ($1, $2, $3, $4, $5, $6)
+                RETURNING id
+                `,
+                [
+                    this.name,
+                    this.description,
+                    this.price,
+                    this.thumbnail,
+                    this.companyId,
+                    this.categoryId,
+                ]
+            )
+            .then((res) => {
+                this.id = res.rows[0].id
+            })
     }
 
     static deleteById(id) {
-        return db.execute(`DELETE * FROM games WHERE games.id = ${id}`)
+        return db.query(`DELETE * FROM games WHERE id = $1`, [id])
     }
 
     static fetchAll() {
-        return db.execute("SELECT * FROM games")
+        return db.query("SELECT * FROM games")
     }
 
     static findById(id) {
-        return db.execute(`SELECT * FROM games WHERE games.id = ${id}`)
+        return db.query(`SELECT * FROM games WHERE id = $1`, [id])
     }
 }

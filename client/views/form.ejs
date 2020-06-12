@@ -7,7 +7,7 @@
     <body>
         <%- include("includes/navigation.ejs") %>
         <div class="page-content">
-            <div class="form">
+            <form class="form">
                 <h1>Please <%= title %>.</h1>
                 <% if (title === 'register') { %>
                 <label for="name">Name: </label>
@@ -28,7 +28,7 @@
                         click here
                     </a>
                 </span>
-            </div>
+            </form>
         </div>
     </body>
 </html>

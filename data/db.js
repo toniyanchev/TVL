@@ -1,6 +1,7 @@
 const db = require("../src/db")
 
-let creators = [
+let create_query = [
+    `DROP Table if EXISTS users`,
     `DROP Table if EXISTS games`,
     `DROP TABLE IF EXISTS companies`,
     `DROP TABLE IF EXISTS categories`,
@@ -21,18 +22,24 @@ let creators = [
         categoryId int references categories(id) not null,
         companyId int references companies(id)
     )`,
+    `CREATE TABLE users (
+        id serial primary key,
+        name varchar not null,
+        email varchar not null,
+        password varchar not null
+    )`,
     `INSERT INTO companies (name) VALUES
-        ('SuperEvilMegacorp'),
-        ('Riot games'),
-        ('Valve')`,
+        ('Mattel'),
+        ('Bicycle'),
+        ('Hasbro')`,
     `INSERT INTO categories (NAME) VALUES
-        ('MOBA'),
-        ('FPS'),
-        ('RPG')`,
-    `INSERT INTO games (NAME, description, price, thumbnail, categoryId, companyId) VALUES
-        ('League Of Legends', 'Top notch game', 0, 'http://some/where.img', 1, 2),
-        ('Rainbow Six Siege', 'Topper notcher game', 25.99, 'http://some/where/else.img', 2, 3),
-        ('Vain Glory', 'Very shitty game', 5.99, 'http://who/knows/where.img', 3, 1)`,
+        ('Family'),
+        ('Puzzle'),
+        ('Party')`,
+    `INSERT INTO games (name, description, price, thumbnail, categoryId, companyId) VALUES
+    ('Monopoly', 'a fun game for everyone', 12.99, 'https://www.kroger.com/product/images/xlarge/front/0063050951263', 1, 3),
+    ('Uno', 'the uno reverse card is iconic', 5.00, 'https://ubistatic19-a.akamaihd.net/ubicomstatic/en-ca/global/search-thumbnail/global_search_thumbnail_image_750x422_mobile_259517.jpg', 3, 1),
+    ('Playing cards', 'just a classic, you cannot go wrong', 4.99, 'https://images-na.ssl-images-amazon.com/images/I/81fzQU44EuL._AC_SL1500_.jpg', 1, 2)`,
 ]
 
 async function main() {
@@ -41,35 +48,17 @@ async function main() {
         console.log("connected")
     } catch (e) {
         console.error(e.stack)
+        return
     }
 
-    for (const creator of creators) {
+    // wait for previous query
+    for (const query of create_query) {
         try {
-            let res = await db.query(creator)
+            await db.query(query)
         } catch (e) {
             console.error(e.stack)
         }
     }
-    second()
-}
-
-function second() {
-    db.query(
-        `SELECT
-            games.name as title,
-            description,
-            price,
-            categories.name as category,
-            companies.name as company
-            FROM games
-            JOIN categories ON games.categoryId = categories.id
-            JOIN companies ON games.companyId = companies.id`
-    )
-        .then((res) => {
-            console.log(res)
-        })
-        .catch((err) => console.error(err.stack))
-        .then(() => db.end())
 }
 
 main()
