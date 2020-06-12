@@ -1,27 +1,11 @@
 {
-<<<<<<< HEAD
-  "name": "TVL",
-  "version": "1.0.0",
-  "description": "\"School project for SUBD subject in ELSYS\"",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon -r dotenv/config src/index.js --exec 'node'"
-  },
-  "repository": "https://github.com/toniyanchev/TVL.git",
-  "author": "\"Anton Yanchev\"",
-  "license": "MIT",
-  "dependencies": {
-    "nodemon": "^2.0.4",
-    "pg": "^8.2.1"
-  }
-=======
     "name": "TVL",
     "version": "1.0.0",
     "description": "\"School project for SUBD subject in ELSYS\"",
     "main": "src/index.js",
     "scripts": {
         "start": "node src/index.js",
+        "dev": "nodemon -r dotenv/config src/index.js --exec 'node'",
         "watch": "sass --watch client/sass:client/public/css",
         "web": "nodemon ./client/bin/www"
     },
@@ -40,5 +24,4 @@
     "devDependencies": {
         "nodemon": "^2.0.4"
     }
->>>>>>> 0744b7dcf83dadead474b4268c0678fb73d70d74
 }

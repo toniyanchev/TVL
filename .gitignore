@@ -1,4 +1,6 @@
 node_modules
-*.map
 .DS_STORE
 yarn.lock
+package-lock.json
+*.map
+*.log
