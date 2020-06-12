@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Monopoly",
+        "description": "A fun family game for everyone",
+        "price": 13.0,
+        "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/81qy%2BMXuxDL._AC_SX425_.jpg",
+        "companyId": 1,
+        "categoryId": 2
+    },
+    {
+        "name": "Uno",
+        "description": "If you don't know it, you didn't have a childhood",
+        "price": 5.0,
+        "thumbnail": "https://ubistatic19-a.akamaihd.net/ubicomstatic/en-ca/global/search-thumbnail/global_search_thumbnail_image_750x422_mobile_259517.jpg",
+        "companyId": 2,
+        "categoryId": 2
+    },
+    {
+        "name": "Jigsaw",
+        "description": "Italy painters and sculptors",
+        "price": 20.0,
+        "thumbnail": "https://i.pinimg.com/originals/0c/b5/2b/0cb52b7a75b3ed1787d32f197c47510c.jpg",
+        "companyId": 3,
+        "categoryId": 3
+    },
+    {
+        "name": "Bicycle Cards",
+        "description": "It's just playing cards",
+        "price": 7.0,
+        "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/810QpvfgQGL._AC_SX522_.jpg",
+        "companyId": 4,
+        "categoryId": 2
+    }
+]
