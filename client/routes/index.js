@@ -28,7 +28,7 @@ router.get("/", (req, res, next) => {
 })
 
 router.get("/posts/:id", (req, res, next) => {
-    res.render("item", { title: "TVL", game: games[req.params.id] })
+    res.render("item", { title: "TVL", game: games[req.params.id-1] })
 })
 
 module.exports = router
