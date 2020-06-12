@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 
 console.log("Hi");
-=======
 const pg = require("pg")
 
 let connection = "postgres://userName:password@localhost/ip:3306/GameShop"
@@ -18,4 +16,3 @@ exports.getGames = async (category, name) => {
         })
         .catch((e) => console.error(e.stack))
 }
->>>>>>> 0744b7dcf83dadead474b4268c0678fb73d70d74
