@@ -17,6 +17,8 @@
     display: flex
     justify-content: space-between
     align-items: center
+    a:hover
+        color: const.$main-light
     .search
         min-width: 400px
         width: 50vw
@@ -29,7 +31,7 @@
             color: #000000
             &:focus
                 outline: none
-                border: 2px solid const.$main
+                border: 2px solid const.$main-light
         select, button
             width: 10%
         input

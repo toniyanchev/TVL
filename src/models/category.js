@@ -15,8 +15,6 @@ module.exports = class Category {
         ])
     }
 
-    static deleteById(id) {}
-
     static findById(id) {
         return db.execute(`SELECT * FROM games WHERE categoryId = ${id}`)
     }

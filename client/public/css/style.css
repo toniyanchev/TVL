@@ -32,7 +32,7 @@ a {
 .cards .card {
   flex: 1 0 500px;
   margin: 1rem 0.25em;
-  border: 1px solid #313131;
+  border: 1px solid #212121;
   border-radius: 10px;
   min-height: 10vh;
 }

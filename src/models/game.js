@@ -26,7 +26,9 @@ module.exports = class Game {
         )
     }
 
-    static deleteById(id) {}
+    static deleteById(id) {
+        return db.execute(`DELETE * FROM games WHERE games.id = ${id}`)
+    }
 
     static fetchAll() {
         return db.execute("SELECT * FROM games")

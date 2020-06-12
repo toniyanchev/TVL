@@ -1,0 +1,50 @@
+@use 'const'
+
+.form
+    margin: 0 auto
+    background: #212121
+    width: 40%
+    min-width: 500px
+    border-radius: 5px
+    text-align: center
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)
+    display: flex
+    flex-direction: column
+    padding: 3rem
+    *
+        color: const.$white
+    label
+        float: left
+        width: fit-content
+    input, button
+        outline: 0
+        border: 0
+        width: 100%
+        font-size: 1rem
+        padding: 1rem
+        margin-bottom: 1.5rem
+    input
+        font-family: "Montserrat", sans-serif
+        background: #333
+        &:focus
+            outline: 1px solid const.$main-light
+    button
+        font-family: "Montserrat", sans-serif
+        text-transform: uppercase
+        background: const.$main
+        transition: 0.3s
+        cursor: pointer
+        &:hover, &:focus
+            transition: 0.3s
+            background: const.$main-light
+    span
+        color: #b3b3b3
+        font-size: 12px
+        a
+            color: const.$main
+            text-decoration: none
+            transition: 0.2s
+            &:hover, &:focus
+                outline: none
+                color: const.$main-light
+                transition: 0.2s

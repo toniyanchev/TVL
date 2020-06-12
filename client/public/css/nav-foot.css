@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&family=Playfair+Display:wght@400;900&display=swap");
 .nav-wrapper {
-  background: #313131;
+  background: #212121;
   width: 100vw;
   height: 7vh;
   top: 0;
@@ -17,6 +18,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.nav a:hover {
+  color: #fbceb5;
+}
 .nav .search {
   min-width: 400px;
   width: 50vw;
@@ -31,7 +35,7 @@
 }
 .nav .search button:focus, .nav .search input:focus, .nav .search select:focus {
   outline: none;
-  border: 2px solid #f7d0cb;
+  border: 2px solid #fbceb5;
 }
 .nav .search select, .nav .search button {
   width: 10%;
@@ -71,7 +75,7 @@
   }
 }
 .footer {
-  background: #313131;
+  background: #212121;
   color: #f9fafc;
   display: flex;
   height: 10vh;
