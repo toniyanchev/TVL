@@ -1,58 +1,75 @@
 const db = require("../src/db")
 
 let creators = [
-    `DROP Table if EXISTS Games;`,
-    `DROP TABLE IF EXISTS Companies;`,
-    `DROP TABLE IF EXISTS Categories;`,
-    `create table Companies (
+    `DROP Table if EXISTS games`,
+    `DROP TABLE IF EXISTS companies`,
+    `DROP TABLE IF EXISTS categories`,
+    `CREATE TABLE companies (
         id serial primary key,
         name varchar not null
-    );`,
-    `create table Categories (
+    )`,
+    `CREATE TABLE categories (
         id serial primary key,
         name varchar not null
-    );`,
-    `create table Games (
+    )`,
+    `CREATE TABLE games (
         id serial primary key,
         name varchar not null,
         description varchar not null,
         price float not null,
         thumbnail varchar not null,
-        categoryId int references Categories(id) not null,
-        companyId int references Companies(id)
-    );`,
-    `INSERT INTO Companies (name) VALUES
+        categoryId int references categories(id) not null,
+        companyId int references companies(id)
+    )`,
+    `INSERT INTO companies (name) VALUES
         ('SuperEvilMegacorp'),
-        ('Riot Games'),
-        ('Valve');`,
-    `INSERT INTO Categories (NAME) VALUES
+        ('Riot games'),
+        ('Valve')`,
+    `INSERT INTO categories (NAME) VALUES
         ('MOBA'),
         ('FPS'),
-        ('RPG');`,
-    `INSERT INTO Games (NAME, description, price, thumbnail, categoryId, companyId) VALUES
+        ('RPG')`,
+    `INSERT INTO games (NAME, description, price, thumbnail, categoryId, companyId) VALUES
         ('League Of Legends', 'Top notch game', 0, 'http://some/where.img', 1, 2),
         ('Rainbow Six Siege', 'Topper notcher game', 25.99, 'http://some/where/else.img', 2, 3),
-        ('Vain Glory', 'Very shitty game', 5.99, 'http://who/knows/where.img', 3, 1);`,
+        ('Vain Glory', 'Very shitty game', 5.99, 'http://who/knows/where.img', 3, 1)`,
 ]
 
-for (creator in creators) {
-    db.query(creator, (err, res) => {
-        if (err) {
-            console.log(err.stack)
-        } else {
-            console.log(res.rows[0])
+async function main() {
+    try {
+        await db.connect()
+        console.log("connected")
+    } catch (e) {
+        console.error(e.stack)
+    }
+
+    for (const creator of creators) {
+        try {
+            let res = await db.query(creator)
+        } catch (e) {
+            console.error(e.stack)
         }
-    })
+    }
+    second()
 }
 
-db.query(
-    `SELECT
-        games.name as title,
-        description,
-        price,
-        categories.name as category,
-        companies.name as company
-        FROM Games
-        JOIN Categories ON Games.categoryId = Categories.id
-        JOIN Companies ON Games.companyId = Companies.id;`
-)
+function second() {
+    db.query(
+        `SELECT
+            games.name as title,
+            description,
+            price,
+            categories.name as category,
+            companies.name as company
+            FROM games
+            JOIN categories ON games.categoryId = categories.id
+            JOIN companies ON games.companyId = companies.id`
+    )
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => console.error(err.stack))
+        .then(() => db.end())
+}
+
+main()
