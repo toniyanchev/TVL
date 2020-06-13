@@ -17,6 +17,7 @@
 .form label {
   float: left;
   width: fit-content;
+  text-transform: capitalize;
 }
 .form input, .form button {
   outline: 0;
