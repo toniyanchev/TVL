@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 
-let app = require('../app')
-let debug = require('debug')('src:server')
-let http = require('http')
+const app = require('../app')
+const debug = require('debug')('src:server')
+const http = require('http')
+const db = require('../../src/db')
+const e = require('express')
 
 let port = '3000'
 app.set('port', port)
 
 let server = http.createServer(app)
+
+db.connect()
+    .then(() => console.log('connected'))
+    .catch((e) => console.error('connection error', e.stack))
 
 server.listen(port)
 server.on('error', onError)

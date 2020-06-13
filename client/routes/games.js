@@ -1,14 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Game = require('../../src/models/game')
-const db = require('../../src/db')
 
 router.get('/', (req, res, next) => {
-    try {
-        db.connect()
-    } catch (e) {
-        console.error(e.stack)
-    }
     Game.fetchAll()
         .then((games) => {
             res.render('index', { title: 'TVL', games: games.rows })
@@ -19,12 +13,6 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    try {
-        db.connect()
-    } catch (e) {
-        console.error(e.stack)
-    }
-
     Game.findById(parseInt(req.params.id))
         .then((game) => {
             res.render('item', { title: 'TVL', game: game.rows[0] })
