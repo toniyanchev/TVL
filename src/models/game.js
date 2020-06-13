@@ -1,4 +1,4 @@
-const db = require("../db")
+const db = require('../db')
 
 module.exports = class Game {
     constructor(name, description, price, thumbnail, companyId, categoryId) {
@@ -36,7 +36,7 @@ module.exports = class Game {
     }
 
     static fetchAll() {
-        return db.query("SELECT * FROM games")
+        return db.query('SELECT * FROM games')
     }
 
     static findById(id) {

@@ -1,5 +1,5 @@
-console.log("Hi")
-const pg = require("pg")
+console.log('Hi')
+const pg = require('pg')
 
 // let connection = "postgres://userName:password@localhost/ip:3306/GameShop"
 

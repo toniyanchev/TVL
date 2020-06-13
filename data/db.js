@@ -1,4 +1,4 @@
-const db = require("../src/db")
+const db = require('../src/db')
 
 let create_query = [
     `DROP Table if EXISTS users`,
@@ -45,7 +45,7 @@ let create_query = [
 async function main() {
     try {
         await db.connect()
-        console.log("connected")
+        console.log('connected')
     } catch (e) {
         console.error(e.stack)
         return

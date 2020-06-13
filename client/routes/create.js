@@ -1,8 +1,8 @@
-const express = require("express")
+const express = require('express')
 const router = express.Router()
 
-router.get("/game", (req, res, next) => {
-    res.render("create_game")
+router.get('/game', (req, res, next) => {
+    res.render('create')
 })
 
-router.get("/category", )
+router.get('/category')

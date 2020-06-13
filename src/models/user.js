@@ -1,4 +1,4 @@
-const db = require("../db")
+const db = require('../db')
 
 module.exports = class User {
     constructor(name, email, password) {
@@ -26,7 +26,7 @@ module.exports = class User {
     }
 
     static fetchAll() {
-        return db.query("SELECT * FROM users")
+        return db.query('SELECT * FROM users')
     }
 
     static findById(id) {

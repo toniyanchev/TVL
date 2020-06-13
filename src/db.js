@@ -1,5 +1,5 @@
-const { Client } = require("pg")
-const { config } = require("./config")
+const { Client } = require('pg')
+const { config } = require('./config')
 /*
  * The config file contains:
  * host, port, user, password
