@@ -22,28 +22,6 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
-router.post('/', (req, res, next) => {
-    const {
-        name,
-        description,
-        price,
-        thumbnail,
-        categoryId,
-        companyId,
-    } = req.body
 
-    const game = new Game(
-        name,
-        description,
-        price,
-        thumbnail,
-        categoryId,
-        companyId
-    )
-    console.log(game)
-    game.save().then((game_res) => {
-        res.redirect('/')
-    })
-})
 
 module.exports = router
