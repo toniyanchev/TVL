@@ -2,11 +2,10 @@
 
 Application for board games store
 
-![Database structure](https://i.imgur.com/jjjeBp4.png)
+![Database structure](https://i.imgur.com/7uR67XF.png)
 
 ### Branching strategy
 
-We are using _Gitflow_ as a branching strategy.
 We have the following branches:
 
 -   **master** - stable, production ready code; latest stable release
