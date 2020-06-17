@@ -1,0 +1,84 @@
+@use 'const'
+
+body
+    font-family: const.$sans-serif
+    color: #000
+    margin: 0
+
+*
+    box-sizing: border-box
+
+a
+    text-decoration: none
+    color: inherit
+
+.page-content
+    min-height: 83vh
+    margin-top: 7vh
+    padding: 3vw
+
+.cards
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    .card
+        flex: 1 0 500px
+        margin: 1rem .25em
+        border: 1px solid const.$secondary
+        border-radius: 10px
+        min-height: 10vh
+        img
+            width: 100%
+            height: 50%
+            border-radius: 10px
+        &-content
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            width: 100%
+            height: 50%
+            padding: 5%
+            *
+                margin: 0
+.price
+    font-weight: bold
+    margin: 0.5rem 0
+    &::before
+        content: "$"
+
+@media (min-width: 40em)
+    .card
+        max-width: calc(50% -  1em)
+
+@media (min-width: 60em)
+    .card
+        max-width: calc(25% - 1em)
+
+.single-item
+    justify-self: center
+    display: flex
+    flex-direction: row
+    width: 100%
+    .left, .right
+        width: 50%
+        margin: 0
+        display: block
+        img
+            width: 100%
+    .right
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        *
+            width: fit-content
+            margin: 0 0 1rem 0
+
+@media (max-width: 700px)
+    .single-item
+        flex-direction: column
+        .left, .right
+            width: 100%
+        .right
+            padding: 2rem 0
+

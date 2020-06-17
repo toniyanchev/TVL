@@ -1,0 +1,73 @@
+@use 'const'
+
+.nav-wrapper
+    background: const.$secondary
+    width: 100vw
+    height: 7vh
+    top: 0
+    left: 0
+    padding: 0 3vw
+    position: fixed
+
+.nav
+    margin: 0
+    color: const.$white
+    width: 94vw
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    a:hover
+        color: const.$main-light
+    .search
+        min-width: 400px
+        width: 50vw
+        height: 50%
+        display: flex
+        button, input, select
+            border: 2px solid const.$white
+            height: 100%
+            background: const.$white
+            color: #000000
+            &:focus
+                outline: none
+                border: 2px solid const.$main-light
+        select, button
+            width: 10%
+        input
+            width: 80%
+            padding: 0 0 0 10px
+        select
+            border-radius: 4px 0 0 4px
+        button
+            border-radius: 0 4px 4px 0
+    .burger
+        display: none
+        .btn
+            background: none
+            border: none
+            color: const.$white
+            font-size: 1.5rem
+            cursor: pointer
+
+@media (max-width: 800px)
+    .nav
+        .burger
+            display: block
+        .route
+            display: none
+
+@media (max-width: 575px)
+    .nav .search
+        width: 40vw
+
+.footer
+    background: const.$secondary
+    color: const.$white
+    display: flex
+    height: 10vh
+    font-size: 1rem
+    flex-flow: column wrap
+    align-items: center
+    justify-content: center
+    width: 100vw

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('includes/head.ejs') %>
+        <link rel="stylesheet" href="/css/form.css">
+    </head>
+    <body>
+        <%- include('includes/navigation.ejs') %>
+        <div class="page-content">
+            <form class="form">
+                <h1>Please <%= title %>.</h1>
+                <% if (title === 'register') { %>
+                <label for="name">Name: </label>
+                <input type="text" name="name" />
+                <% } %>
+                <label for="email">Email: </label>
+                <input type="email" name="email" />
+                <label for="password">Password: </label>
+                <input type="password" name="pass" />
+                <% if (title === 'register') { %>
+                <label for="confirm">Confirm password: </label>
+                <input type="password" name="confirm" />
+                <% } %>
+                <button type="submit"><%= title %></button>
+                <span>
+                    <%= span %>
+                    <a href="/authenticate/<%=title=="register"?"login":"register"%>">
+                        click here
+                    </a>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

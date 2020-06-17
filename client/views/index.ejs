@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('includes/head.ejs') %>
+    </head>
+    <body>
+        <%- include('includes/navigation.ejs') %>
+        <div class="page-content">
+            <h1><%= title %></h1>
+            <section class="cards">
+                <% games.forEach(element => { %>
+                <article class="card">
+                    <img
+                        src="<%= element.thumbnail %>"
+                        alt="<%= element.name %>"
+                    />
+                    <content class="card-content">
+                        <h1><%= element.name %></h1>
+                        <p><%= element.description %></p>
+                        <span class="price"><%= element.price %></span>
+                        <a href="/games/<%= element.id%>">View</a>
+                    </content>
+                </article>
+                <% }) %>
+            </section>
+        </div>
+        <%- include('includes/footer.ejs') %>
+    </body>
+</html>

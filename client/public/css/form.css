@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+.form {
+  margin: 0 auto;
+  background: #212121;
+  width: 40%;
+  min-width: 500px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+.form * {
+  color: #f9fafc;
+}
+.form label {
+  float: left;
+  width: fit-content;
+  text-transform: capitalize;
+}
+.form input, .form button {
+  outline: 0;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.form input {
+  background: #333;
+}
+.form input:focus {
+  outline: 1px solid #fbceb5;
+}
+.form button {
+  text-transform: uppercase;
+  background: #f85c50;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.form button:hover, .form button:focus {
+  transition: 0.3s;
+  background: #fbceb5;
+}
+.form span {
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form span a {
+  color: #f85c50;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.form span a:hover, .form span a:focus {
+  outline: none;
+  color: #fbceb5;
+  transition: 0.2s;
+}
+
+/*# sourceMappingURL=form.css.map */
