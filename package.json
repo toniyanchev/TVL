@@ -4,9 +4,8 @@
     "description": "\"School project for SUBD subject in ELSYS\"",
     "main": "src/index.js",
     "scripts": {
-        "start": "node src/index.js",
-        "watch": "sass --watch client/sass:client/public/css",
-        "web": "nodemon ./client/bin/www"
+        "start": "nodemon ./client/bin/www",
+        "dev": "sass --watch client/sass:client/public/css"
     },
     "repository": "https://github.com/toniyanchev/TVL.git",
     "author": "\"Anton Yanchev\"",
