@@ -57,5 +57,10 @@
   color: #fbceb5;
   transition: 0.2s;
 }
+.form .error {
+  color: #ca3e3e;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
 
 /*# sourceMappingURL=form.css.map */

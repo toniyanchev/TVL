@@ -14,6 +14,10 @@ a {
   color: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
 .page-content {
   min-height: 83vh;
   margin-top: 7vh;

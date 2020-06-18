@@ -22,7 +22,7 @@ module.exports = class User {
     }
 
     static deleteById(id) {
-        return db.query(`DELETE FROM users WHERE users.id = $1`, [id])
+        return db.query(`DELETE FROM users WHERE id = $1`, [id])
     }
 
     static fetchAll() {
@@ -30,6 +30,10 @@ module.exports = class User {
     }
 
     static findById(id) {
-        return db.query(`SELECT * FROM users WHERE users.id = $1`, [id])
+        return db.query(`SELECT * FROM users WHERE id = $1`, [id])
+    }
+
+    static findByMail(mail) {
+        return db.query(`SELECT * FROM users WHERE email = $1`, [mail])
     }
 }

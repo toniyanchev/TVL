@@ -7,24 +7,33 @@
     <body>
         <%- include('includes/navigation.ejs') %>
         <div class="page-content">
-            <form class="form">
+            <form class="form" method="POST" action="<%= title %>">
                 <h1>Please <%= title %>.</h1>
                 <% if (title === 'register') { %>
                 <label for="name">Name: </label>
-                <input type="text" name="name" />
+                <input type="text" name="name" required />
                 <% } %>
                 <label for="email">Email: </label>
-                <input type="email" name="email" />
+                <input type="email" name="email" required />
                 <label for="password">Password: </label>
-                <input type="password" name="pass" />
+                <input type="password" name="pass" id="password" required />
                 <% if (title === 'register') { %>
                 <label for="confirm">Confirm password: </label>
-                <input type="password" name="confirm" />
+                <input type="password" name="confirm" id="confirm" required />
+                <span class="error hidden" id="pass-err">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Passwords do not match
+                </span>
+                <% } if (error) { %>
+                <span class="error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <%= error %>
+                </span>
                 <% } %>
-                <button type="submit"><%= title %></button>
+                <button type="submit" id="submit"><%= title %></button>
                 <span>
                     <%= span %>
-                    <a href="/authenticate/<%=title=="register"?"login":"register"%>">
+                    <a href="/<%=title=="register"?"login":"register"%>">
                         click here
                     </a>
                 </span>

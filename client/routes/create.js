@@ -35,7 +35,7 @@ router.get('/game', (req, res, next) => {
     res.render('create', { title: 'Game', inputs: inputs })
 })
 
-router.post('/games', (req, res, next) => {
+router.post('/game', (req, res, next) => {
     const {
         name,
         description,
