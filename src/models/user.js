@@ -22,7 +22,7 @@ module.exports = class User {
     }
 
     static deleteById(id) {
-        return db.query(`DELETE * FROM users WHERE users.id = $1`, [id])
+        return db.query(`DELETE FROM users WHERE users.id = $1`, [id])
     }
 
     static fetchAll() {

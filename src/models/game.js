@@ -32,7 +32,7 @@ module.exports = class Game {
     }
 
     static deleteById(id) {
-        return db.query(`DELETE * FROM games WHERE id = $1`, [id])
+        return db.query(`DELETE FROM games WHERE id = $1`, [id])
     }
 
     static fetchAll() {

@@ -15,6 +15,9 @@
                     <p><%= game.description %></p>
                     <span class="price"><%= game.price %></span>
                     <button class="buy">Add to cart</button>
+                    <form action="delete/<%= game.id %>" method="POST">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>

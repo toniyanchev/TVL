@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Game.findById(parseInt(req.params.id))
+    Game.findById(req.params.id)
         .then((game) => {
             res.render('item', { title: 'TVL', game: game.rows[0] })
         })
@@ -22,6 +22,8 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
-
+router.post('/delete/:id', (req, res, next) => {
+    Game.deleteById(req.params.id).then(res.redirect('/games'))
+})
 
 module.exports = router

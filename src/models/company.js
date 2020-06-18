@@ -16,7 +16,7 @@ module.exports = class Company {
     }
 
     static deleteById(id) {
-        return db.query(`DELETE * FROM games WHERE company.id = $1`, [id])
+        return db.query(`DELETE FROM games WHERE company.id = $1`, [id])
     }
 
     static findById(id) {
