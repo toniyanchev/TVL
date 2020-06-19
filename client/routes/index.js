@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../../src/models/user')
+const bcrypt = require('bcrypt')
+const saltRounds = 100
 
 router.get('/', (req, res, next) => {
     res.redirect('/games')
@@ -44,7 +46,12 @@ router.post('/register', (req, res, next) => {
             error: 'This email is already registered',
         })
     } else {
-        res.redirect('/games')
+        const { name, email, password } = req.body
+
+        bcrypt.hash(password, saltRounds, function (err, hash) {
+            const user = new User(name, email, hash)
+            user.save().then(res.redirect('/games'))
+        })
     }
 })
 
