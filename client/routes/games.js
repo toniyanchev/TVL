@@ -3,13 +3,21 @@ const router = express.Router()
 const Game = require('../../src/models/game')
 
 router.get('/', (req, res, next) => {
-    Game.fetchAll()
-        .then((games) => {
+    const cat = req.query.category
+    const name = req.query.name
+    if (cat === 'all' || cat === undefined) {
+        Game.fetchAll()
+            .then((games) => {
+                res.render('index', { title: 'TVL', games: games.rows })
+            })
+            .catch((err) => {
+                next(err)
+            })
+    } else if (cat !== '') {
+        Game.findByCategory(cat).then((games) => {
             res.render('index', { title: 'TVL', games: games.rows })
         })
-        .catch((err) => {
-            next(err)
-        })
+    }
 })
 
 router.get('/:id', (req, res, next) => {

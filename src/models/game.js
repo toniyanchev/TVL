@@ -13,7 +13,7 @@ module.exports = class Game {
     save() {
         return db
             .query(
-                `INSERT INTO games (name, description, price, thumbnail, companyId, categoryId)
+                `INSERT INTO games (name, description, price, thumbnail, )
                 VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING id
                 `,
@@ -41,5 +41,12 @@ module.exports = class Game {
 
     static findById(id) {
         return db.query(`SELECT * FROM games WHERE id = $1`, [id])
+    }
+
+    static findByCategory(category) {
+        return db.query(
+            `SELECT * FROM games JOIN categories on categoryID = categories.id WHERE category.name = $1`,
+            [category]
+        )
     }
 }

@@ -7,7 +7,7 @@
     <body>
         <%- include('includes/navigation.ejs') %>
         <div class="page-content">
-            <form class="form" action="/create/<%= title %> " method="POST">
+            <form class="form" action="/create/<%= title %>" method="POST">
                 <h1>Add a <%= title %> to database</h1>
                 <% for (const input of inputs) { %>
                 <label for="<%= input.name %> "><%= input.name %></label>

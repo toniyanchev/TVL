@@ -23,12 +23,12 @@ router.get('/game', (req, res, next) => {
             name: 'thumbnail',
         },
         {
-            type: 'number',
-            name: 'categoryId',
+            type: 'text',
+            name: 'category',
         },
         {
-            type: 'number',
-            name: 'companyId',
+            type: 'text',
+            name: 'company',
         },
     ]
 
@@ -36,23 +36,19 @@ router.get('/game', (req, res, next) => {
 })
 
 router.post('/game', (req, res, next) => {
-    const {
-        name,
-        description,
-        price,
-        thumbnail,
-        categoryId,
-        companyId,
-    } = req.body
+    const { name, description, price, thumbnail, category, company } = req.body
 
     const game = new Game(
         name,
         description,
         price,
         thumbnail,
-        categoryId,
-        companyId
+        category,
+        company
     )
+
+    
+
     console.log(game)
     game.save().then(() => {
         res.redirect('/')
